@@ -14,13 +14,15 @@ pipeline{
                 }
             }
         }
+        sh'export MAVEN_HOME=/opt/maven'
+        sh'export PATH=$PATH:$MAVEN_HOME/bin'
+        sh'mvn --version'
+mvn clean package
         stage('Unit Test'){
 
              steps{
 
               script{
-                  def mvnHome = tool name: 'maven-3.8.7', type: 'maven'
-                    sh "${mvnHome}/bin/mvn package"
                    
                    sh 'mvn test'
 
