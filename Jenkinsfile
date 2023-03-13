@@ -109,9 +109,9 @@ pipeline{
                  //  sh 'docker image tag $JOB_NAME:v1.$BUILD_ID vikashashoke/$JOB_NAME:v1.$BUILD_ID'
                //    sh 'docker image tag $JOB_NAME:v1.$BUILD_ID vikashashoke/$JOB_NAME:latest'
 
-                }//
-             }//
-        }//
+               // }
+           //  }
+       // }
         //stage('Docker image push'){
 
           //   steps{
