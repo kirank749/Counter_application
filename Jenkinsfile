@@ -1,19 +1,6 @@
 pipeline{
 
     agent any 
-    tools { 
-      Maven-3.8.7 'MAVEN_HOME' 
-      java-11 'JAVA_HOME' 
-    }
-    stages {
-      stage ('Build') {
-        steps {
-          sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
-        }
-      }
-
-    }
-
     stages{
 
         stage('Git Checkout'){
@@ -32,6 +19,8 @@ pipeline{
              steps{
 
               script{
+                  def mvnHome = tool name: 'maven-3.8.7', type: 'maven'
+                    sh "${mvnHome}/bin/mvn package"
                    
                    sh 'mvn test'
 
